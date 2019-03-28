@@ -1,0 +1,32 @@
+﻿Construir un sistema que se pueda usar en cualquier momento para enviar mensajes de texto totalmente seguros. Comunicación entre dos personas, comunicación entre grupos,
+inicialización de la comuncación. El programa debe ser lo más sencillo posible. Mantener la sesión activa mandando cada cierto tiempo claves. Evitar suplantación de identidad,
+problema de los dos ejércitos.
+
+Características deseables:
+1)Confidencialidad
+2)Autenticación
+3)No repudio (como algo algo activable, opcional)
+4)Control de integridad (tiempo de envío)
+	*Garantía de entrega
+
+Uso de hardware dedicado, como:
+	-Microcontrolador, en concreto el STM32F103C
+	-Teclado PS/2	-----------------------------|
+	-Pantalla/display alfanumérica	-------------| Sustituible por un segundo equipo no conectado a Internet, que trabaje como un terminal virtual (SSH y OpenSSH)
+	-Impresora térmica de papel continuo	-----|
+	-Comunicación puerto serie
+	-Lector tajeta microSD
+	
+->Módulo criptográfico
+->Ecosistema
+->Requisito: Sistema de mensajería de texto 100% seguro: Pares, Grupos.
+
+Mecanismo de transporte: Inseguro
+Diseño (especificación) del sistema criptográfico es abierto.
+Verificación en dos pasos: opcional
+Sistema intrínsecamente distribuido: P2P (no servidores centrales)
+Comunicación por grupos: Anycast
+Redundancia	+------Para qué sirve: Para garantizar la integridad y para dificultar el criptoanálisis
+			+------Cómo la conseguimos: Añadir bits aleatorios. Aumento de la entropía -> aleatorio + LZW.
+Código de verificación para verificar la integridad
+Paso de claves de sesión
